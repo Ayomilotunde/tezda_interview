@@ -3,13 +3,13 @@ import 'package:tezda_interview/utils/app_asset.dart';
 import 'package:tezda_interview/utils/app_theme.dart';
 import 'package:tezda_interview/utils/util_helpers.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
 
 class DashboardAppBar extends StatelessWidget {
   final String name;
   final String? userImage;
 
-  const DashboardAppBar({super.key, required this.name, required this.userImage});
+  const DashboardAppBar(
+      {super.key, required this.name, required this.userImage});
 
   @override
   Widget build(BuildContext context) {
@@ -17,8 +17,7 @@ class DashboardAppBar extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
         GestureDetector(
-          onTap: () {
-          },
+          onTap: () {},
           child: Row(
             children: [
               userImage != null && userImage != ""
@@ -27,7 +26,9 @@ class DashboardAppBar extends StatelessWidget {
                       height: 32,
                       decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(100),
-                          image: DecorationImage(image: NetworkImage(userImage!), fit: BoxFit.cover),
+                          image: DecorationImage(
+                              image: NetworkImage(userImage!),
+                              fit: BoxFit.cover),
                           color: AppTheme.primaryColor),
                     )
                   : Container(
@@ -37,7 +38,9 @@ class DashboardAppBar extends StatelessWidget {
                       decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(100),
                           border: Border.all(width: .1),
-                          image: const DecorationImage(image: AssetImage(AppImgAssets.logoWhite), fit: BoxFit.contain),
+                          image: const DecorationImage(
+                              image: AssetImage(AppImgAssets.logoWhite),
+                              fit: BoxFit.contain),
                           color: AppTheme.white),
                     ),
               const XMargin(8),
@@ -50,13 +53,14 @@ class DashboardAppBar extends StatelessWidget {
           ),
         ),
         GestureDetector(
-          onTap: () {
-          },
+          onTap: () {},
           child: Container(
             width: 34,
             height: 34,
             padding: const EdgeInsets.all(4),
-            decoration: BoxDecoration(color: AppTheme.grey.shade100.withOpacity(.4), shape: BoxShape.circle),
+            decoration: BoxDecoration(
+                color: AppTheme.grey.shade100.withOpacity(.4),
+                shape: BoxShape.circle),
             child: const Icon(Icons.notifications_none),
           ),
         )
@@ -64,4 +68,3 @@ class DashboardAppBar extends StatelessWidget {
     );
   }
 }
-

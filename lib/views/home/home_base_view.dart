@@ -18,7 +18,7 @@ class _HomeBaseViewState extends State<HomeBaseView> {
   static final List _widgetOptions = [
     const HomeView(),
     const FavouriteView(),
-    EditProfile()
+    const EditProfile()
     // const ProfileView()
   ];
 
@@ -28,7 +28,6 @@ class _HomeBaseViewState extends State<HomeBaseView> {
     });
   }
 
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -36,7 +35,7 @@ class _HomeBaseViewState extends State<HomeBaseView> {
       bottomNavigationBar: Container(
         padding: const EdgeInsets.all(10),
         decoration:
-        BoxDecoration(color: Colors.white, border: Border.all(width: .1)),
+            BoxDecoration(color: Colors.white, border: Border.all(width: .1)),
         child: BottomNavigationBar(
             backgroundColor: Colors.white,
             items: <BottomNavigationBarItem>[
@@ -72,7 +71,6 @@ class _HomeBaseViewState extends State<HomeBaseView> {
                 ),
                 label: 'Favorites',
               ),
-
               BottomNavigationBarItem(
                 icon: SvgPicture.asset(
                   AppAssets.profile,

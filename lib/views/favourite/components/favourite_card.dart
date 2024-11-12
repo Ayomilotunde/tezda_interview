@@ -2,18 +2,16 @@ import 'package:flutter/material.dart';
 import 'package:tezda_interview/components/custom_text.dart';
 import 'package:tezda_interview/model/favourite/favourite.dart';
 import 'package:tezda_interview/provider/favourite_provider.dart';
-import 'package:tezda_interview/provider/product_provider.dart';
 import 'package:tezda_interview/utils/app_theme.dart';
 import 'package:tezda_interview/utils/button.dart';
 import 'package:tezda_interview/utils/util_helpers.dart';
 import 'package:tezda_interview/views/favourite/components/remove_product.dart';
 
-import '../../../model/product_response.dart';
-
 class FavouriteCard extends StatefulWidget {
   final Favorite product;
   final FavouriteProvider productProvider;
-  const FavouriteCard({super.key, required this.product, required this.productProvider});
+  const FavouriteCard(
+      {super.key, required this.product, required this.productProvider});
 
   @override
   State<FavouriteCard> createState() => _FavouriteCardState();
@@ -141,7 +139,6 @@ class _FavouriteCardState extends State<FavouriteCard> {
                       padding: const EdgeInsets.only(right: 15.0),
                       child: Button(
                         onPressed: () async {
-
                           // cartController.addItem(widget.product.id!);
                           // await cartController.addToCart().then((isSuccess) {
                           //   if (isSuccess) {
@@ -183,8 +180,8 @@ class _FavouriteCardState extends State<FavouriteCard> {
                           isScrollControlled: true,
                           constraints: BoxConstraints(
                               maxHeight:
-                              MediaQuery.of(context).size.height * .65),
-                          builder: (context) => RemoveProduct(),
+                                  MediaQuery.of(context).size.height * .65),
+                          builder: (context) => const RemoveProduct(),
                         );
                       },
                       child: Container(

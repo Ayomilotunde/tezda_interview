@@ -1,18 +1,17 @@
 import 'package:provider/provider.dart';
 import 'package:tezda_interview/components/custom_text.dart';
 import 'package:tezda_interview/provider/favourite_provider.dart';
-import 'package:tezda_interview/provider/product_provider.dart';
 import 'package:tezda_interview/services/navigation_service.dart';
 import 'package:tezda_interview/utils/app_theme.dart';
 import 'package:tezda_interview/utils/button.dart';
 import 'package:tezda_interview/utils/dialog.dart';
 import 'package:tezda_interview/utils/util_helpers.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-
 
 class RemoveProduct extends StatelessWidget {
-  const RemoveProduct({super.key, });
+  const RemoveProduct({
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) {

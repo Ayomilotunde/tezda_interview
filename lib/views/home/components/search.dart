@@ -1,7 +1,4 @@
-import 'package:tezda_interview/utils/app_theme.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:get/get.dart';
 
 class CustomSearchBox extends StatelessWidget {
   const CustomSearchBox({super.key});

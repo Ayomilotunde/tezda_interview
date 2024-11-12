@@ -66,7 +66,7 @@ class CustomInputText extends StatelessWidget {
         maxLength: maxLength,
         maxLines: maxLines,
         style: TextStyle(
-          letterSpacing: letterSpacing ?? null,
+          letterSpacing: letterSpacing,
         ),
         decoration: InputDecoration(
             fillColor: Colors.white,
@@ -76,15 +76,18 @@ class CustomInputText extends StatelessWidget {
               horizontal: 10.0,
             ),
             border: OutlineInputBorder(
-                borderSide: BorderSide(color: borderColor ?? AppTheme.grey[500]!, width: .1),
+                borderSide: BorderSide(
+                    color: borderColor ?? AppTheme.grey[500]!, width: .1),
                 borderRadius: BorderRadius.circular(10)),
             hintText: placeholder,
             prefixIcon: prefixIcon,
             counterText: counterText,
-            hintStyle: const TextStyle(fontSize: 14, fontWeight: FontWeight.normal),
+            hintStyle:
+                const TextStyle(fontSize: 14, fontWeight: FontWeight.normal),
             // border: InputBorder.none,
             suffixIcon: suffixIcon,
-            suffixIconConstraints: const BoxConstraints(maxHeight: 30, maxWidth: 35, minHeight: 20)),
+            suffixIconConstraints: const BoxConstraints(
+                maxHeight: 30, maxWidth: 35, minHeight: 20)),
         readOnly: readOnly,
         enabled: enabled,
         cursorColor: AppTheme.primaryColor,
@@ -168,14 +171,17 @@ class CustomLabelInputText extends StatelessWidget {
                 vertical: 13.0,
                 horizontal: 10.0,
               ),
-              border: OutlineInputBorder(borderRadius: BorderRadius.circular(3)),
+              border:
+                  OutlineInputBorder(borderRadius: BorderRadius.circular(3)),
               hintText: placeholder,
               prefixIcon: prefixIcon,
               counterText: counterText,
-              hintStyle: const TextStyle(fontSize: 14, fontWeight: FontWeight.normal),
+              hintStyle:
+                  const TextStyle(fontSize: 14, fontWeight: FontWeight.normal),
               // border: InputBorder.none,
               suffixIcon: suffixIcon,
-              suffixIconConstraints: const BoxConstraints(maxHeight: 30, maxWidth: 35, minHeight: 20)),
+              suffixIconConstraints: const BoxConstraints(
+                  maxHeight: 30, maxWidth: 35, minHeight: 20)),
           readOnly: readOnly,
           enabled: enabled,
           cursorColor: AppTheme.primaryColor,
@@ -278,7 +284,8 @@ class CustomLabelUnderlineInputText extends StatelessWidget {
                 focusedBorder: const UnderlineInputBorder(
                   borderSide: BorderSide(color: Colors.black),
                 ),
-                suffixIconConstraints: const BoxConstraints(maxHeight: 30, maxWidth: 24, minHeight: 20)),
+                suffixIconConstraints: const BoxConstraints(
+                    maxHeight: 30, maxWidth: 24, minHeight: 20)),
             readOnly: readOnly,
             enabled: enabled,
             cursorColor: AppTheme.primaryColor,

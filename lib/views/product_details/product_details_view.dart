@@ -5,7 +5,6 @@ import 'package:tezda_interview/utils/app_theme.dart';
 import 'package:tezda_interview/utils/button.dart';
 import 'package:tezda_interview/utils/loading_overlay.dart';
 import 'package:tezda_interview/utils/util_helpers.dart';
-import 'package:tezda_interview/views/product_details/components/buy_now_view.dart';
 import 'package:tezda_interview/views/product_details/components/delivery_section.dart';
 import 'package:tezda_interview/views/product_details/components/feature_images.dart';
 import 'package:tezda_interview/views/product_details/components/full_description.dart';
@@ -67,7 +66,8 @@ class _ProductDetailsView extends State<ProductDetailsView> {
         ),
         bottomNavigationBar: controller.singleProduct.details!.quantity != 0
             ? Padding(
-                padding: const EdgeInsets.only(left: 24, right: 24, top: 15, bottom: 25),
+                padding: const EdgeInsets.only(
+                    left: 24, right: 24, top: 15, bottom: 25),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
@@ -101,7 +101,7 @@ class _ProductDetailsView extends State<ProductDetailsView> {
                       child: SizedBox(
                         height: 37,
                         child: Button(
-                          onPressed: (){},
+                          onPressed: () {},
                           text: 'Buy Now',
                           color: AppTheme.primaryColor,
                           borderColor: AppTheme.primaryColor,

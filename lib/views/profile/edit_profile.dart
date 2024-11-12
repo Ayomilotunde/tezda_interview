@@ -4,19 +4,12 @@ import 'package:tezda_interview/services/secure_storage/secure_storage.dart';
 import 'package:tezda_interview/utils/app_asset.dart';
 import 'package:tezda_interview/utils/app_theme.dart';
 import 'package:tezda_interview/utils/button.dart';
-import 'package:tezda_interview/utils/dialog.dart';
 import 'package:tezda_interview/utils/string_utils.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 import 'package:provider/provider.dart';
-import 'package:tezda_interview/provider/product_provider.dart';
 import 'package:tezda_interview/provider/user_provider.dart';
-import 'package:tezda_interview/services/secure_storage/secure_storage.dart';
-import 'package:tezda_interview/utils/string_utils.dart';
 import 'package:tezda_interview/utils/util_helpers.dart';
 import 'package:tezda_interview/views/profile/components/edit_profile_item.dart';
-
-import '../../provider/auth_provider.dart';
 
 class EditProfile extends StatefulWidget {
   const EditProfile({super.key});
@@ -71,18 +64,19 @@ class _EditProfileState extends State<EditProfile> {
     // dobController.text = (await SecureStorage().retrieveUserDOB())!.substring(0, 10);
     // genderController.text = (await SecureStorage().retrieveUserGender())!;
 
-    firstNameController.text =
-        userController.userProfile.user?.firstName ?? (await SecureStorage().retrieveUsrFirsName())!;
-    lastNameController.text =
-        userController.userProfile.user?.lastName ?? (await SecureStorage().retrieveUsrLastName())!;
-    dobController.text = StringUtils.formatDate(userController.userProfile.user?.dob ?? DateTime.now());
-    genderController.text =
-        userController.userProfile.user?.gender ?? (await SecureStorage().retrieveUserGender())!;
+    firstNameController.text = userController.userProfile.user?.firstName ??
+        (await SecureStorage().retrieveUsrFirsName())!;
+    lastNameController.text = userController.userProfile.user?.lastName ??
+        (await SecureStorage().retrieveUsrLastName())!;
+    dobController.text = StringUtils.formatDate(
+        userController.userProfile.user?.dob ?? DateTime.now());
+    genderController.text = userController.userProfile.user?.gender ??
+        (await SecureStorage().retrieveUserGender())!;
   }
 
   @override
   Widget build(BuildContext context) {
-    final authController = Provider.of<AuthProvider>(context, listen: true);
+    // final authController = Provider.of<AuthProvider>(context, listen: true);
     return Scaffold(
       backgroundColor: Colors.white,
       body: SafeArea(
@@ -123,8 +117,10 @@ class _EditProfileState extends State<EditProfile> {
                           width: 110,
                           height: 110,
                           decoration: const BoxDecoration(
-                             shape: BoxShape.circle,
-                              image: DecorationImage(image: AssetImage(AppImgAssets.logoWhite), fit: BoxFit.cover),
+                              shape: BoxShape.circle,
+                              image: DecorationImage(
+                                  image: AssetImage(AppImgAssets.logoWhite),
+                                  fit: BoxFit.cover),
                               color: AppTheme.white),
                         ),
                       ],
@@ -133,7 +129,10 @@ class _EditProfileState extends State<EditProfile> {
                       padding: EdgeInsets.only(top: 10.0),
                       child: Text(
                         '${"Ayomide"} ${"Adeoye"}',
-                        style: TextStyle(fontSize: 18, fontWeight: FontWeight.w600, color: Color(0xff1E1E1E)),
+                        style: TextStyle(
+                            fontSize: 18,
+                            fontWeight: FontWeight.w600,
+                            color: Color(0xff1E1E1E)),
                       ),
                     ),
                     const Row(
@@ -147,7 +146,10 @@ class _EditProfileState extends State<EditProfile> {
                         ),
                         Text(
                           'Lagos, Nigeria',
-                          style: TextStyle(fontSize: 13, fontWeight: FontWeight.w500, color: Color(0xffA1A1A1)),
+                          style: TextStyle(
+                              fontSize: 13,
+                              fontWeight: FontWeight.w500,
+                              color: Color(0xffA1A1A1)),
                         ),
                       ],
                     )
@@ -212,7 +214,6 @@ class _EditProfileState extends State<EditProfile> {
                         });
                       } else {
                         // authController.dob = selectedDate ?? DateTime.now();
-
                       }
                     },
                     text: toggle ? 'Save Changes' : 'Edit Profile',

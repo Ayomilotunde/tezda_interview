@@ -2,7 +2,6 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:tezda_interview/services/navigation_service.dart';
 import 'package:tezda_interview/utils/progress_dialog.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 import 'package:tezda_interview/utils/snackbar.dart';
 
 import 'app_theme.dart';
@@ -59,22 +58,20 @@ class YMargin extends StatelessWidget {
 // }
 void setSnackBar(String title, String content,
         {Color? color, Color? textColor}) =>
-openSnackBar(currentContext!, content, color ?? AppTheme.primaryColor);
+    openSnackBar(currentContext!, content, color ?? AppTheme.primaryColor);
 
-    // Get.snackbar(title, content,
-    //     colorText: textColor ?? AppTheme.black,
-    //     backgroundColor: color ?? AppTheme.primaryColor);
+// Get.snackbar(title, content,
+//     colorText: textColor ?? AppTheme.black,
+//     backgroundColor: color ?? AppTheme.primaryColor);
 
 // void setProgressDialog() => Get.dialog(const ProgressDialog(), barrierDismissible: false);
 void setProgressDialog() => showDialog(
-  context: currentContext!,
-  barrierDismissible: false,
-  builder: (BuildContext context) {
-    return const Center(
-      child: ProgressDialog()
+      context: currentContext!,
+      barrierDismissible: false,
+      builder: (BuildContext context) {
+        return const Center(child: ProgressDialog());
+      },
     );
-  },
-);
 
 // void getSnackBar(String status) => Get.showSnackbar(GetSnackBar(
 //     messageText: CustomSnackBar(msg: status),

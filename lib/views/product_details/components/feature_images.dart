@@ -1,6 +1,5 @@
 import 'package:provider/provider.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 import 'package:tezda_interview/provider/product_provider.dart';
 
 class FeatureImages extends StatelessWidget {

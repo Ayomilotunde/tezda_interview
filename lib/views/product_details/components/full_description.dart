@@ -2,16 +2,16 @@ import 'package:tezda_interview/components/custom_text.dart';
 import 'package:tezda_interview/utils/app_theme.dart';
 import 'package:tezda_interview/utils/util_helpers.dart';
 import 'package:flutter/cupertino.dart';
-import 'package:get/get.dart';
 import 'package:provider/provider.dart';
 import 'package:tezda_interview/provider/product_provider.dart';
 
 class FullDescription extends StatelessWidget {
-  FullDescription({super.key});
+  const FullDescription({super.key});
 
   @override
   Widget build(BuildContext context) {
-    final productController = Provider.of<ProductProvider>(context, listen: true);
+    final productController =
+        Provider.of<ProductProvider>(context, listen: true);
     String realDescription =
         productController.singleProduct.details?.longDesc ?? "";
     String specification =

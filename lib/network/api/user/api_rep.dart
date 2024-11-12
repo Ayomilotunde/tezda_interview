@@ -77,7 +77,8 @@ class ApiRepo {
     required String email,
   }) async {
     try {
-      final Response response = await dioClient.put(ApiConstants.forgotPassword, data: {"email": email});
+      final Response response = await dioClient
+          .put(ApiConstants.forgotPassword, data: {"email": email});
       return response;
     } catch (e) {
       rethrow;
@@ -89,8 +90,8 @@ class ApiRepo {
     required String newPassword,
   }) async {
     try {
-      final Response response =
-          await dioClient.put(ApiConstants.resetPassword, data: {"otp": otp, "newPassword": newPassword});
+      final Response response = await dioClient.put(ApiConstants.resetPassword,
+          data: {"otp": otp, "newPassword": newPassword});
       return response;
     } catch (e) {
       rethrow;
@@ -194,29 +195,36 @@ class ApiRepo {
     return response;
   }
 
-  Future<Response> fetchAllProductApi({required String pageNumber, required String limit}) async {
-    final Response response = await dioClient.get("${ApiConstants.fetchAllProducts}$pageNumber/$limit");
+  Future<Response> fetchAllProductApi(
+      {required String pageNumber, required String limit}) async {
+    final Response response = await dioClient
+        .get("${ApiConstants.fetchAllProducts}$pageNumber/$limit");
     return response;
   }
 
-  Future<Response> fetchFlashSalesProductApi({required String pageNumber, required String limit}) async {
-    final Response response = await dioClient.get("${ApiConstants.fetchFlashSalesProduct}/$pageNumber/$limit");
+  Future<Response> fetchFlashSalesProductApi(
+      {required String pageNumber, required String limit}) async {
+    final Response response = await dioClient
+        .get("${ApiConstants.fetchFlashSalesProduct}/$pageNumber/$limit");
     return response;
   }
 
   Future<Response> fetchAProductApi(String id) async {
-    print("${ApiConstants.fetchAProduct}$id");
-    final Response response = await dioClient.get("${ApiConstants.fetchAProduct}$id");
+    // print("${ApiConstants.fetchAProduct}$id");
+    final Response response =
+        await dioClient.get("${ApiConstants.fetchAProduct}$id");
     return response;
   }
 
   Future<Response> fetchReviewsApi(String id) async {
-    final Response response = await dioClient.get("${ApiConstants.fetchAllReviews}$id");
+    final Response response =
+        await dioClient.get("${ApiConstants.fetchAllReviews}$id");
     return response;
   }
 
   Future<Response> fetchRatingsApi(String id) async {
-    final Response response = await dioClient.get("${ApiConstants.fetchAllRatings}$id");
+    final Response response =
+        await dioClient.get("${ApiConstants.fetchAllRatings}$id");
     return response;
   }
 
@@ -226,8 +234,9 @@ class ApiRepo {
     required String comment,
     required int rating,
   }) async {
-    final Response response = await dioClient
-        .post("${ApiConstants.addReviews}$id", data: {"title": title, "comment": comment, "rating": rating});
+    final Response response = await dioClient.post(
+        "${ApiConstants.addReviews}$id",
+        data: {"title": title, "comment": comment, "rating": rating});
     return response;
   }
 
@@ -324,7 +333,8 @@ class ApiRepo {
 
 /*------------------ Favourite Api Call End----------------*/
 
-  Future<Response> fetchCategoriesApi({required String pageNumber, required String limit}) async {
+  Future<Response> fetchCategoriesApi(
+      {required String pageNumber, required String limit}) async {
     try {
       final Response response = await dioClient.get(
         "${ApiConstants.getCategories}$pageNumber/$limit",
@@ -336,7 +346,9 @@ class ApiRepo {
   }
 
   Future<Response> fetchCategoryProductsApi(
-      {required String page, required String categoryID, required String limit}) async {
+      {required String page,
+      required String categoryID,
+      required String limit}) async {
     try {
       final Response response = await dioClient.get(
         "${ApiConstants.searchProductByCategory}$categoryID/$page/$limit",
@@ -347,7 +359,10 @@ class ApiRepo {
     }
   }
 
-  Future<Response> fetchSearchedProductsApi({required String page, required String name, required String limit}) async {
+  Future<Response> fetchSearchedProductsApi(
+      {required String page,
+      required String name,
+      required String limit}) async {
     try {
       final Response response = await dioClient.get(
         "${ApiConstants.searchProductByName}$name/$page/$limit",
@@ -369,7 +384,8 @@ class ApiRepo {
     required String phoneNumber,
   }) async {
     try {
-      final Response response = await dioClient.put(ApiConstants.addUserAddress, data: {
+      final Response response =
+          await dioClient.put(ApiConstants.addUserAddress, data: {
         "firstName": firstname,
         "lastName": lastname,
         "streetAdd": street,
@@ -408,8 +424,9 @@ class ApiRepo {
   }
 
   Future<Response> fetchLocationsByLGAApi(String lga) async {
-    print("${ApiConstants.getPickupLocationByLGA}$lga");
-    final Response response = await dioClient.get("${ApiConstants.getPickupLocationByLGA}$lga");
+    // print("${ApiConstants.getPickupLocationByLGA}$lga");
+    final Response response =
+        await dioClient.get("${ApiConstants.getPickupLocationByLGA}$lga");
     return response;
   }
 
@@ -451,8 +468,9 @@ class ApiRepo {
 
   Future<Response> cancelOrderApi(String orderID) async {
     try {
-      final Response response =
-          await dioClient.put("${ApiConstants.cancelOrder}$orderID/status/user", data: {"status": "cancelled"});
+      final Response response = await dioClient.put(
+          "${ApiConstants.cancelOrder}$orderID/status/user",
+          data: {"status": "cancelled"});
       return response;
     } catch (e) {
       rethrow;
