@@ -14,28 +14,16 @@ class ApiRepo {
     required String? email,
     String? firstName,
     String? lastName,
-    required String? phoneNumber,
-    required String? nin,
-    required String? gender,
-    required String? state,
-    required String? lga,
     required String? password,
-    required String? adminReferral,
   }) async {
     final Response response = await dioClient.post(
       ApiConstants.createAccount,
       data: {
         "email": email,
         "password": password,
-        "userType": "retailer", // regular or retailer
+        "userType": "regular", // regular or retailer
         "firstName": firstName ?? "", // optional
         "lastName": lastName ?? "", // optional
-        "phoneNumber": phoneNumber, // optional, based on userType
-        "nin": nin,
-        "gender": gender,
-        "state": state,
-        "localGovt": lga,
-        "adminReferral": adminReferral ?? ""
       },
     );
     return response;
@@ -73,6 +61,23 @@ class ApiRepo {
     final Response response = await dioClient.get("${ApiConstants.fetchAllRatings}$id");
     return response;
   }
+
+  Future<Response> verifyAccountApi({
+    required String otp,
+  }) async {
+    try {
+      final Response response = await dioClient.put(
+        ApiConstants.verifyAccount,
+        data: {
+          "otp": otp,
+        },
+      );
+      return response;
+    } catch (e) {
+      rethrow;
+    }
+  }
+
 
   Future<Response> addReviewApi(
     String id, {

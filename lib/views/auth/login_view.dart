@@ -4,9 +4,11 @@ import 'package:tezda_interview/components/custom_text.dart';
 import 'package:tezda_interview/provider/auth_provider.dart';
 import 'package:tezda_interview/utils/app_theme.dart';
 import 'package:tezda_interview/utils/button.dart';
+import 'package:tezda_interview/utils/next_screen.dart';
 import 'package:tezda_interview/utils/util_helpers.dart';
 import 'package:tezda_interview/utils/validators.dart';
 import 'package:flutter/material.dart';
+import 'package:tezda_interview/views/auth/create_account_page.dart';
 
 class LoginView extends StatefulWidget {
   const LoginView({super.key});
@@ -169,8 +171,7 @@ class _LoginViewState extends State<LoginView> {
                                             const XMargin(5),
                                             GestureDetector(
                                               onTap: () {
-                                                // Get.to(() => const CreateAccountPage());
-                                                // Get.to(() => const CreateRetailerAccountPage());
+                                                nextScreen(context, CreateAccountPage());
                                               },
                                               child: const CustomNunitoText(
                                                 text: ' Create an Account',

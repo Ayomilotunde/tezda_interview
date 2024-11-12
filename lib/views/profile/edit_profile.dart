@@ -4,11 +4,13 @@ import 'package:tezda_interview/services/secure_storage/secure_storage.dart';
 import 'package:tezda_interview/utils/app_asset.dart';
 import 'package:tezda_interview/utils/app_theme.dart';
 import 'package:tezda_interview/utils/button.dart';
+import 'package:tezda_interview/utils/next_screen.dart';
 import 'package:tezda_interview/utils/string_utils.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:tezda_interview/provider/user_provider.dart';
 import 'package:tezda_interview/utils/util_helpers.dart';
+import 'package:tezda_interview/views/auth/login_view.dart';
 import 'package:tezda_interview/views/profile/components/edit_profile_item.dart';
 
 class EditProfile extends StatefulWidget {
@@ -222,6 +224,25 @@ class _EditProfileState extends State<EditProfile> {
                     block: true,
                     textColor: Colors.white,
                   ),
+                ),
+                YMargin(30.h),
+                SizedBox(
+                  height: 38,
+                  child: Button(
+                    onPressed: () async {
+                      await SecureStorage().loggedIn(isLogged: false);
+                      await SecureStorage().saveToken(token: '');
+                      nextScreenReplace(context, LoginView());
+                    },
+                    text: 'Logout',
+                    color: AppTheme.primaryColor,
+                    borderColor: AppTheme.primaryColor,
+                    block: true,
+                    textColor: Colors.white,
+                  ),
+                ),
+                const SizedBox(
+                  height: 20,
                 ),
               ],
             ),
